@@ -1,0 +1,33 @@
+{
+  "name": "rag-notes",
+  "version": "1.0.0",
+  "dependencies": {
+    "@awaitjs/express": "0.9.0",
+    "axios": "1.6.5",
+    "dotenv": "16.3.2",
+    "express": "4.18.2",
+    "mongoose": "^8.1",
+    "sinon": "17.0.1",
+    "stargate-mongoose": "0.4.3",
+    "vanillatoasts": "1.6.0",
+    "webpack": "5.x"
+  },
+  "devDependencies": {
+    "@masteringjs/eslint-config": "0.0.1",
+    "eslint": "8.56.0",
+    "mocha": "10.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "build": "node ./frontend/build",
+    "clean-db": "node ./dropCollections",
+    "lint": "eslint .",
+    "seed": "node ./seed",
+    "start": "node .",
+    "test": "env NODE_ENV=test mocha ./test/*.test.js",
+    "test:smoke": "node ./smoke-test"
+  }
+}
+
