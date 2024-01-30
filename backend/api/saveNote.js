@@ -8,7 +8,10 @@ module.exports = async function saveNote(req, res) {
   const $vector = await createEmbedding(content);
 
   const note = await Note.create({ content, $vector });
-  return res.json({ note });
+
+  const count = await Note.countDocuments({});
+
+  return res.json({ note, count });
 };
 
 function createEmbedding(input) {

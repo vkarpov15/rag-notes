@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Sample RAG Note Taking App</title>
+
+    <link rel="stylesheet" href="/tw.css" />
+  </head>
+
+  <body>
+    <div class="mx-2 mt-10">
+      <div class="bg-white py-8 lg:py-16 shadow rounded-md max-w-7xl mx-auto">
+        <div class="px-6 lg:px-8">
+          <div class="max-w-2xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 class="inline sm:block">Take Notes</h2>
+          </div>
+          <p class="inline sm:block mt-1">
+            Enter a note of something you want to remember later.
+          </p>
+          <form class="mt-6" id="note-form">
+            <div class="flex gap-x-4">
+              <input
+                id="note"
+                type="text"
+                required
+                class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="I got a haircut on January 3">
+              <button
+                type="submit"
+                class="flex-none w-[130px] text-center rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-gray-200">
+                Save Note
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-6 max-w-lg text-gray-600" id="num-notes">
+                       
+          </div>
+        </div>
+      </div>
+  
+      <div class="bg-white py-8 lg:py-16 shadow rounded-md max-w-7xl mx-auto mt-10">
+        <div class="px-6 lg:px-8">
+          <div class="max-w-2xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 class="inline sm:block">Ask the AI</h2>
+          </div>
+          <p class="inline sm:block mt-1">
+            Ask our API any question, and it will answer based on your notes.
+          </p>
+          <form class="mt-6" id="question-form">
+            <div class="flex gap-x-4">
+              <input
+                id="question"
+                type="text"
+                required
+                class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="When's the last time I got a haircut?">
+              <button
+                type="submit"
+                class="flex-none w-[130px] rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-gray-200">
+                Ask Question
+              </button>
+            </div>
+          </form>
+          <div id="answer-wrapper" style="display: none">
+            <div class="flex-auto rounded-md p-3 ring-1 ring-inset ring-gray-200">
+              <div class="flex justify-between gap-x-4">
+                <div class="py-0.5 text-xs leading-5 text-gray-500"><span class="font-medium text-gray-900">ChatGPT</span> replied</div>
+              </div>
+              <p class="text-sm leading-6 text-gray-800" id="answer-container">Called client, they reassured me the invoice would be paid by the 25th.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="/main.js"></script>
+</html>

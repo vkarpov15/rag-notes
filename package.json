@@ -15,7 +15,8 @@
   "devDependencies": {
     "@masteringjs/eslint-config": "0.0.1",
     "eslint": "8.56.0",
-    "mocha": "10.2.0"
+    "mocha": "10.2.0",
+    "tailwindcss": "3.4.0"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -26,6 +27,8 @@
     "lint": "eslint .",
     "seed": "node ./seed",
     "start": "node .",
+    "tailwind": "tailwindcss -o ./frontend/tw.css",
+    "tailwind:watch": "tailwindcss -o ./frontend/tw.css --watch",
     "test": "env NODE_ENV=test mocha ./test/*.test.js",
     "test:smoke": "node ./smoke-test"
   }
