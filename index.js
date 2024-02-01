@@ -18,6 +18,7 @@ async function main() {
   const { app } = await backend();
   app.use(express.static('./frontend'));
 
-  await app.listen(3000);
-  console.log('App listening on port 3000');
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
+  console.log('App listening on port', port);
 };
