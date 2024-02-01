@@ -22,7 +22,6 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "build": "node ./frontend/build",
     "clean-db": "node ./dropCollections",
     "lint": "eslint .",
     "seed": "node ./seed",
