@@ -4,10 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const backend = require('./backend');
-const { execSync } = require('child_process');
 const express = require('express');
-
-execSync('npm run tailwind');
 
 main().catch(error => {
   console.error(error);
