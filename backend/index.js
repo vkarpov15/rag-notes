@@ -6,6 +6,7 @@ const countNotes = require('./api/countNotes');
 const db = require('./db');
 const express = require('express');
 const saveNote = require('./api/saveNote');
+const status = require('./api/status');
 
 module.exports = async function backend() {
   await db();
@@ -16,6 +17,7 @@ module.exports = async function backend() {
   app.putAsync('/answerQuestion', limitTo100Requests, answerQuestion);
   app.getAsync('/countNotes', countNotes);
   app.putAsync('/saveNote', limitTo100Requests, saveNote);
+  app.getAsync('/status', status);
 
   return { app };
 };
