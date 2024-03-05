@@ -11,6 +11,9 @@ const questionFormButtonText = questionFormButton.textContent;
 const answerWrapper = document.querySelector('#answer-wrapper');
 const answerContainer = document.querySelector('#answer-container');
 
+const sourcesWrapper = document.querySelector('#sources-wrapper');
+const sourcesContainer = document.querySelector('#sources-container');
+
 const numNotesContainer = document.querySelector('#num-notes');
 
 let numNotes = 0;
@@ -65,6 +68,18 @@ document.querySelector('#question-form').addEventListener('submit', ev => {
     .then(data => {
       answerContainer.innerText = data.choices[0].message.content;
       answerWrapper.style.display = 'block';
+      if (data.sources) {
+         const sources = data.sources.map(source => 
+          `
+          <div class="flex-auto rounded-md p-3 ring-1 ring-inset ring-gray-200">
+          <div class="flex justify-between gap-x-4">
+            <div class="py-0.5 text-xs leading-5 text-gray-500"><span class="font-medium text-gray-900">Sources</span></div>
+          </div>
+          <p class="text-sm leading-6 text-gray-800" id="sources-container">${source}</p>`
+          ).join('\n');
+        sourcesContainer.appendChild(sources);
+        sourcesWrapper.style.display = 'block';
+      }
     })
     .finally(() => {
       questionFormButton.disabled = false;
