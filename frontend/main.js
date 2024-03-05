@@ -12,7 +12,7 @@ const answerWrapper = document.querySelector('#answer-wrapper');
 const answerContainer = document.querySelector('#answer-container');
 
 const sourcesWrapper = document.querySelector('#sources-wrapper');
-const sourcesContainer = document.querySelector('#sources-container');
+
 
 const numNotesContainer = document.querySelector('#num-notes');
 
@@ -77,7 +77,7 @@ document.querySelector('#question-form').addEventListener('submit', ev => {
           </div>
           <p class="text-sm leading-6 text-gray-800" id="sources-container">${source}</p>`
           ).join('\n');
-        sourcesContainer.appendChild(sources);
+        sourcesWrapper.appendChild(sources);
         sourcesWrapper.style.display = 'block';
       }
     })
