@@ -9,9 +9,8 @@ module.exports = async function answerQuestion(req, res) {
   const notes = await Note.find().limit(3).sort({ $vector: { $meta: embedding } });
 
   const prompt = systemPrompt(notes);
-  const data = await makeChatGPTRequest(prompt, req.body.question);
-
-  return res.json(data);
+  const answers = await makeChatGPTRequest(prompt, req.body.question);
+  return res.json({ sources: notes.map(x => ({ content: x.content, createdAt: new Date(x.createdAt).toDateString() })), answer: answers })
 };
 
 const systemPrompt = (notes, question) => `
