@@ -73,11 +73,12 @@ document.querySelector('#question-form').addEventListener('submit', ev => {
         const nodeMaker = document.createElement('div');
          const notes = sources.map(source => 
           `
-          <div class="flex-auto rounded-md p-3 ring-1 ring-inset ring-gray-200">
+          <div class="flex-auto rounded-md p-3 ring-1 mt-1 ring-inset ring-gray-200">
             <div class="flex justify-between gap-x-4">
-              <div class="py-0.5 text-xs leading-5 text-gray-500"><span class="font-medium text-gray-900">Sources</span></div>
+              <div class="py-0.5 text-xs leading-5 text-gray-500">Source</div>
             </div>
-            <p class="text-sm leading-6 text-gray-800" id="sources-container">${source.content} ${source.createdAt}</p>
+            <p class="text-sm leading-6 text-gray-800" id="sources-container">${source.content}</p>
+            <p class="text-gray-500 text-xs">${source.createdAt}</p>
           </div>
           `
           ).join('\n');
